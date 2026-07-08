@@ -1,1 +1,72 @@
-hi 
+to do : 
+Automatic tagging
+Semantic Versioning
+
+What You Should Learn for GitHub Actions & CI/CD
+
+To become comfortable writing and debugging workflows like this, focus on these topics in roughly this order:
+
+Topic	Why it's important
+YAML syntax	Indentation, keys, lists, mappings, comments
+GitHub Actions basics	Workflows, events, jobs, steps, runners
+GitHub-hosted vs self-hosted runners	Where workflows execute
+Workflow triggers	push, pull_request, workflow_dispatch, schedule, release
+Reusable actions	uses: vs run: and the GitHub Marketplace
+Shell commands	Writing Bash scripts in run: or script: blocks
+GitHub Secrets	Securely storing passwords, tokens, and SSH keys
+Environment variables	env:, ${{ env.NAME }}, ${{ secrets.NAME }}
+Expressions	${{ github.ref }}, ${{ github.sha }}, if: conditions
+Docker	Dockerfiles, images, containers, registries, tags, build context
+Docker Hub	Authentication, repositories, image versioning
+Docker Compose	pull, up -d, down, volumes, networks
+SSH	Public/private keys, connecting securely to remote servers
+CI concepts	Build, test, lint, package, artifact creation
+CD concepts	Deployment strategies, rollbacks, zero-downtime deployments
+Artifacts	Uploading/downloading build outputs between jobs
+Job dependencies	needs: to control execution order
+Matrix builds	Testing across multiple operating systems or language versions
+Caching	Speeding up builds with dependency caches
+Debugging	Reading logs, enabling debug output, rerunning failed jobs
+Environments	Development, staging, production, approval gates
+
+# ---
+A roadmap for mastering GitHub Actions
+
+GitHub Actions fundamentals: workflows, jobs, steps, runners, triggers.
+YAML syntax: indentation, mappings, arrays, comments, anchors (optional).
+Actions vs shell commands: when to use uses: and when to use run:.
+Secrets and variables: repository secrets, organization secrets, environment variables, contexts.
+Docker integration: build, tag, push, pull, and image versioning.
+Deployment: SSH-based deployment, Docker Compose, and later Kubernetes deployments.
+Advanced workflows: matrices, caching, reusable workflows, artifacts, conditional execution, concurrency, and approvals.
+
+. lsof
+
+lsof stands for List Open Files.
+
+In Linux, everything is treated like a file, including:
+
+Regular files
+Directories
+Hard disks
+Network sockets (ports)
+USB devices
+Pipes
+
+So lsof can tell you which process is using a particular file or port.
+
+ps aux
+
+ps stands for Process Status. It shows information about the processes currently running on your system.
+
+ps aux
+
+Example:
+
+USER       PID  %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root      2775   0.0  0.0 1746984 4480 ?        Sl   17:37   0:00 /usr/bin/docker-proxy ...
+jrao      3500   1.2  0.5 123456 23456 pts/0    S+   18:00   0:01 node server.js
+Meaning of aux
+a → Show processes for all users.
+u → Display in a user-oriented format (shows user, CPU, memory, etc.).
+x → Include processes not attached to a terminal (such as Docker containers, background services, daemons).
