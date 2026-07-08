@@ -1,0 +1,12 @@
+Assignment: Multi-Branch CI Pipeline
+Goal
+
+Create different CI pipelines for different Git branches.
+
+Instead of every branch doing the same work, each branch has a different responsibility.
+
+| Branch      | Purpose                                     | GitHub Actions workflow           |
+| ----------- | ------------------------------------------- | --------------------------------- |
+| `feature/*` | Develop a single feature                    | ✅ Lint                            |
+| `develop`   | Integrate features from multiple developers | ✅ Build + ✅ Test                  |
+| `main`      | Production-ready code                       | ✅ Build + ✅ Test + ✅ Docker Build |
