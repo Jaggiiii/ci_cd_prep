@@ -1,7 +1,0 @@
-User:
-  username: jagadeesh
-  password: jagadeesh123
-  enabled: true
-  roles:
-    - admin
-    - devops
