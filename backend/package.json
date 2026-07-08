@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest",
-    "build": "echo \"Build successful\"",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "echo \"Build successful\""
   }
 }
