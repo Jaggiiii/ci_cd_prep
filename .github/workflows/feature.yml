@@ -1,11 +1,12 @@
-name: develop CI
+name: Feature Workflow
+
 on:
   push:
     branches:
-      - develop
+      - 'feature/**'
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     defaults:
@@ -15,13 +16,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: setup Node.js
+
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+
       - name: Install dependencies
         run: npm install
-      - name: Run Builds
-        run: npm run build
-      - name: tests
-        run: npm test
+
+      - name: Run ESLint
+        run: npm run lint

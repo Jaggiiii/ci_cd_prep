@@ -1,0 +1,14 @@
+name: compose
+version: '3'
+services:
+  backend:
+    image: backend:latest
+  frontend:
+    image: frontend:latest
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+  
+    
