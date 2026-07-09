@@ -1,0 +1,118 @@
+What is git stash?
+Think of git stash as a temporary shelf for your unfinished work.
+Instead of committing incomplete code, you temporarily save it, clean your working directory, and restore it later.
+
+For example:
+Working Directory
+        │
+        ▼
+   git stash
+        │
+        ▼
+ Temporary Storage (Stash)
+        │
+        ▼
+ Working Directory becomes clean
+
+ git stash apply --->restores and keep it in the stash list.
+ git stash pop -----> restores and pops out from stash list.
+
+
+
+hello
+
+What gets stashed?
+By default:
+
+ | Type                   | Stashed? |
+| ---------------------- | -------- |
+| Modified tracked files | ✅        |
+| Staged files           | ✅        |
+| Untracked files        | ❌        |
+| Ignored files          | ❌        |
+
+custom stast for naming ---> git stash push -m "Payment API"
+
+git stash drop stash@{1} --->to drop a stash
+git stash clear ---> to clear all the stash
+
+
+Include Untracked Files
+Suppose
+modified: app.js
+new.js
+Run
+git stash
+Result
+app.js stored
+new.js still there
+Instead
+git stash -u
+or
+git stash --include-untracked
+Now
+app.js stored
+new.js stored
+Include Ignored Files
+Normally
+.env
+node_modules
+are ignored.
+To stash them
+git stash -a
+or
+git stash --all
+
+
+to see what is inside the stash ---->git stash show.
+
+
+Stash Only Staged Files----> git stash --staged
+
+Stash Only Unstaged Files -----> git stash --keep-index
+
+you can interact with stash ----> git stash -
+
+
+Create a Branch from a Stash
+Suppose you realize the stashed work belongs on another branch.
+
+Run
+git stash branch feature/payment stash@{0}
+Git will:
+
+Create feature/payment
+Switch to it
+Apply the stash
+Remove the stash (if successful)
+
+
+Scenario 1: Emergency Bug
+git stash
+git checkout main
+# Fix bug
+git commit -m "Fix production bug"
+git checkout feature/login
+git stash apply
+
+Scenario 2: Pull Latest Changes
+git stash
+git checkout develop
+git pull
+git checkout feature/login
+git stash apply
+
+Scenario 3: Change Branch Without Committing
+git stash
+git checkout feature/payment
+# Work
+git checkout feature/login
+git stash apply
+
+git stash                    # Save your work
+git checkout main            # Switch branches
+# Do other work
+git checkout feature/login   # Return to your branch
+git stash apply              # Restore changes
+# Verify everything works
+git stash drop               # Remove the stash when you're sure you no longer need it
